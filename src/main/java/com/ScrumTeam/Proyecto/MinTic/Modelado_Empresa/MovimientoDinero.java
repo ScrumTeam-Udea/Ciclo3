@@ -1,14 +1,14 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
 public class MovimientoDinero {
-    private int id;
+    private long id;
     private float monto;
     private String concepto;
     private Empleado usuario;
     private Empresa empresa;
 
     //constructor
-    public MovimientoDinero(int monto, String concepto, Empleado usuario, Empresa empresa) {
+    public MovimientoDinero(long id, int monto, String concepto, Empleado usuario, Empresa empresa) {
         this.id = id;
         this.monto = monto;
         this.concepto = concepto;
@@ -17,6 +17,14 @@ public class MovimientoDinero {
     }
 
     //getters y setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public int getMonto() {
         return monto;
     }
