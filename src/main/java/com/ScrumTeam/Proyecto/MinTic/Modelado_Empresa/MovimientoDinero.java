@@ -8,11 +8,12 @@ public class MovimientoDinero {
     private Empresa empresa;
 
     //constructor
-    public MovimientoDinero(int monto, String concepto, Empleado usuario) {
+    public MovimientoDinero(int monto, String concepto, Empleado usuario, Empresa empresa) {
         this.id = id;
         this.monto = monto;
         this.concepto = concepto;
         this.usuario = usuario;
+        this.empresa = empresa;
     }
 
     //getters y setters
