@@ -12,6 +12,10 @@ public class Empleado {
 
     private List<MovimientoDinero> transacciones = new ArrayList<>();
     
+    enum NombreRol {
+        administrador, operario 
+        }
+    
     //constructor
     public Empleado(int id, String nombre, String correo, Empresa empresa, String rol) {
         
