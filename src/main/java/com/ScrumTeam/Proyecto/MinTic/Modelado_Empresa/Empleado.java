@@ -1,5 +1,7 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import java.lang.*;
+
 public class Empleado {
     private int id;
     private String nombre;
