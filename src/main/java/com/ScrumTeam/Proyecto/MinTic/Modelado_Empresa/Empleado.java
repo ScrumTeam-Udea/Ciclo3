@@ -4,11 +4,16 @@ public class Empleado {
     private int id;
     private String nombre;
     private String correo;
+    private Perfil perfil;
     private Empresa empresa;
     private String rol;
 
+    private List<MovimientoDinero> transacciones = new ArrayList<>();
+    
     //constructor
     public Empleado(int id, String nombre, String correo, Empresa empresa, String rol) {
+        
+        super();
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
@@ -16,6 +21,10 @@ public class Empleado {
         this.rol = rol;
     }
 
+    public void addMovimientoDinero(MovimientoDinero transaccion) {
+      transacciones.add(transaccion);
+    }
+    
     //getters y setters
     public int getId() {
         return id;
