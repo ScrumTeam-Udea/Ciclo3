@@ -5,7 +5,7 @@ import java.lang.*;
 
 
 public class Empresa {
-    private int id;
+    private long id;
     private String nombre;
     private String nit;
     private String telefono;
@@ -16,7 +16,7 @@ public class Empresa {
     private List<MovimientoDinero> transacciones = new ArrayList<>();
     
     //constructor
-    public Empresa(String nombre, String direccion, String telefono, String nit) {
+    public Empresa(long id, String nombre, String direccion, String telefono, String nit) {
        
         super();
         this.id = id;
@@ -36,18 +36,29 @@ public class Empresa {
     }
 
     //getters y setters
-    public String getNombre() {
-        return nombre;}
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;}
-
-    public String getDireccion() {
-        return direccion;
+    
+    public int getId() {
+        return id;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+     public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 
     public String getTelefono() {
@@ -57,12 +68,13 @@ public class Empresa {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    public String getNit() {
-        return nit;
+    
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setNit(String nit) {
-        this.nit = nit;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
+
 }
