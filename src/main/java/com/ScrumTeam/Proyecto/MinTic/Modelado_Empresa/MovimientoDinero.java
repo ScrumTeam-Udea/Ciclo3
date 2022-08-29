@@ -1,12 +1,15 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
 public class MovimientoDinero {
-    private int monto;
+    private int id;
+    private float monto;
     private String concepto;
     private Empleado usuario;
+    private Empresa empresa;
 
     //constructor
     public MovimientoDinero(int monto, String concepto, Empleado usuario) {
+        this.id = id;
         this.monto = monto;
         this.concepto = concepto;
         this.usuario = usuario;
@@ -35,5 +38,13 @@ public class MovimientoDinero {
 
     public void setUsuario(Empleado usuario) {
         this.usuario = usuario;
+    }
+    
+     public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }
