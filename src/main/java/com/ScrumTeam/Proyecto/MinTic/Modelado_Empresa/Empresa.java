@@ -1,7 +1,8 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
 
-import java.lang.*;
+import java.util.*;
+
 
 
 public class Empresa {
@@ -24,7 +25,7 @@ public class Empresa {
         this.nit = nit;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.empleado = empleado;
+
     }
     
     public void addEmpleado (Empleado empleado) {
@@ -32,12 +33,12 @@ public class Empresa {
     }
 
     public void removeEmpleado(Empleado empleado1) {
-        empleados.remove(empleado1)
+        empleados.remove(empleado1);
     }
 
     //getters y setters
     
-    public int getId() {
+    public long getId() {
         return id;
     }
 

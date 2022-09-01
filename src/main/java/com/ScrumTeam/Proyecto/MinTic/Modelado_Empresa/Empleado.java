@@ -1,6 +1,6 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-import java.lang.*;
+import java.util.*;
 
 public class Empleado {
     private long id;
@@ -33,7 +33,7 @@ public class Empleado {
     }
     
     //getters y setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 

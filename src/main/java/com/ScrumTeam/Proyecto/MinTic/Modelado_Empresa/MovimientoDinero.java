@@ -17,7 +17,7 @@ public class MovimientoDinero {
     }
 
     //getters y setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -25,7 +25,7 @@ public class MovimientoDinero {
         this.id = id;
     }
     
-    public int getMonto() {
+    public float getMonto() {
         return monto;
     }
 
