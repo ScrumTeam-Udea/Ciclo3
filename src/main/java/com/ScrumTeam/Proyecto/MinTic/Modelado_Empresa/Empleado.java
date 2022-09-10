@@ -1,6 +1,8 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import javax.persistence.GenerationType;
 import java.util.*;
+
 
 public class Empleado {
     
