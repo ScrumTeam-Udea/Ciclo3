@@ -1,14 +1,24 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "MovimientoDinero")
 public class MovimientoDinero {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)private Long id;
     private float monto;
     private String concepto;
+    @ManyToOne
+    @JoinColumn(name = "usuario")
     private Empleado usuario;
+    @ManyToOne
+    @JoinColumn(name = "empresa")
     private Empresa empresa;
 
     //constructor
-    public MovimientoDinero(long id, int monto, String concepto, Empleado usuario, Empresa empresa) {
+    public MovimientoDinero(Long id, int monto, String concepto, Empleado usuario, Empresa empresa) {
         this.id = id;
         this.monto = monto;
         this.concepto = concepto;
@@ -17,11 +27,11 @@ public class MovimientoDinero {
     }
 
     //getters y setters
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
@@ -41,7 +51,7 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public Empleado getUsuario() {
+   /* public Empleado getUsuario() {
         return usuario;
     }
 
@@ -49,11 +59,11 @@ public class MovimientoDinero {
         this.usuario = usuario;
     }
     
-     public Empresa getEmpresa() {
+    /* public Empresa getEmpresa() {
         return empresa;
     }
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
-    }
+    }*/
 }

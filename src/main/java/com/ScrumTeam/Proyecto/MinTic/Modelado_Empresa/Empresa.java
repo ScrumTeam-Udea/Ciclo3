@@ -1,24 +1,28 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-
+import javax.persistence.*;
 import java.util.*;
 
-
-
+@Entity
+@Table(name = "Empresa")
 public class Empresa {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)private Long id;
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String nit;
     private String telefono;
     private String direccion;
     
-    private List<Empleado> empleados = new ArrayList<>();
+    //private List<Empleado> empleados = new ArrayList<>();
 
-    private List<MovimientoDinero> transacciones = new ArrayList<>();
+   // private List<MovimientoDinero> transacciones = new ArrayList<>();
     
     //constructor
-    public Empresa(long id, String nombre, String direccion, String telefono, String nit) {
-       
+    public Empresa(Long id, String nombre, String direccion, String telefono, String nit) {
+
         super();
         this.id = id;
         this.nombre = nombre;
@@ -28,21 +32,21 @@ public class Empresa {
 
     }
     
-    public void addEmpleado (Empleado empleado) {
-        empleados.add(empleado);
+   /* public void addEmpleado (Empleado empleado) {
+       empleados.add(empleado);
     }
 
     public void removeEmpleado(Empleado empleado1) {
         empleados.remove(empleado1);
-    }
+    }*/
 
     //getters y setters
     
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     

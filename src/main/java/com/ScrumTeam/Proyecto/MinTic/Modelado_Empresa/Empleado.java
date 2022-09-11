@@ -1,24 +1,34 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
+@Table(name = "Empleado")
 public class Empleado {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)private Long id;
     private String nombre;
+    @Column(nullable = false)
     private String correo;
+    @OneToOne
+    @JoinColumn(name = "perfil")
     private Perfil perfil;
+    @ManyToOne
+    @JoinColumn(name= "empresa")
     private Empresa empresa;
     private String rol;
 
-    private List<MovimientoDinero> transacciones = new ArrayList<>();
+    //private List<MovimientoDinero> transacciones = new ArrayList<>();
     
-    enum NombreRol {
-        administrador, operario 
+    public enum NombreRol {
+        administrador, operativo
         }
     
     //constructor
-    public Empleado(long id, String nombre, String correo, Perfil perfil, Empresa empresa, String rol) {
-        
+    public Empleado(Long id, String nombre, String correo, Perfil perfil, Empresa empresa, String rol) {
+
         super();
         this.id = id;
         this.nombre = nombre;
@@ -28,16 +38,16 @@ public class Empleado {
         this.rol = rol;
     }
 
-    public void addMovimientoDinero(MovimientoDinero transaccion) {
+    /*public void addMovimientoDinero(MovimientoDinero transaccion) {
       transacciones.add(transaccion);
-    }
+    }*/
     
     //getters y setters
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,7 +67,7 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public Empresa getEmpresa() {
+   public Empresa getEmpresa() {
         return empresa;
     }
 
@@ -72,4 +82,5 @@ public class Empleado {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
 }
