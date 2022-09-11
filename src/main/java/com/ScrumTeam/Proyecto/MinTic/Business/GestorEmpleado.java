@@ -10,13 +10,13 @@ public class GestorEmpleado {
 
     private ArrayList<Empleado> empleado;
     Perfil perfil1 = new Perfil(001, "sjadfghalsd", "37214696");
-    Empresa empresa1 = new Empresa (001,"Cosmeticos Yisel", "Circasia","68971263",
+    Empresa empresa1 = new Empresa ("Cosmeticos Yisel", "Circasia","68971263",
             "12983764");
 
     public GestorEmpleado() {
         this.empleado = new ArrayList<>();
 
-        this.empleado.add (new Empleado(001, "Laura Yisel", "Yisel69@gmail.com", perfil1,
+        this.empleado.add (new Empleado( "Laura Yisel", "Yisel69@gmail.com", perfil1,
                 empresa1, "Admin"));
     }
 

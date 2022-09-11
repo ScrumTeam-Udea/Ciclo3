@@ -1,12 +1,11 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-import javax.persistence.GenerationType;
 import java.util.*;
 
 
 
 public class Empresa {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id;
     private String nombre;
     private String nit;

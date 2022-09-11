@@ -13,8 +13,8 @@ public class GestorEmpresa {
     public GestorEmpresa(){
         this.empresa = new ArrayList<>();
 
-        this.empresa.add (new Empresa(001, "Yisel y asociados.", "Circasia", "3113129873",
-                "9287364208-1"));
+        this.empresa.add (new Empresa("Yisel y Asociados","Circasia", "3113129873",
+                "92873642-0"));
     }
                 //Verificación de existencia de empresa....
     public Empresa getEmpresa (String nombre) throws Exception{

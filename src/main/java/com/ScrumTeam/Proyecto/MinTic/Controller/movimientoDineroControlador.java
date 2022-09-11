@@ -3,6 +3,7 @@ package com.ScrumTeam.Proyecto.MinTic.Controller;
 import com.ScrumTeam.Proyecto.MinTic.Business.GestorMovimientoDinero;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.MovimientoDinero;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
  @RestController
  public class movimientoDineroControlador {
    
-  @Autowired 
-    private GestorMovimientoDinero gestorMovimientoDinero;
+  @Autowired
+    private GestorMovimientoDinero gestorDinero;
 
 
   @GetMapping("/enterprises/[id]/movements")
@@ -42,7 +43,7 @@ import org.springframework.web.bind.annotation.*;
      public ResponseEntity<ObjetoRespuesta> putMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
 
         try {
-            MovimientoDinero movimientoDinero_bd = gestorMovimientoDinero.updateMovimientoDineroAll(movimientoDinero_update, id);
+            MovimientoDinero movimientoDinero_bd = gestorDinero.updateMovimientoDineroAll(movimientoDinero_update, id);
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa",movimientoDinero_bd), HttpStatus.OK);
 
         } catch (Exception e) {
@@ -55,7 +56,7 @@ import org.springframework.web.bind.annotation.*;
    @PatchMapping("/enterprises/[id]/movements")
      public ResponseEntity<ObjetoRespuesta> patchMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
         try {
-            MovimientoDinero movimientoDinero_bd= gestorMovimientoDinero.updateMovimientoDinero(movimientoDinero_update, id);
+            MovimientoDinero movimientoDinero_bd= gestorDinero.updateMovimientoDinero(movimientoDinero_update, id);
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa", movimientoDinero_bd), HttpStatus.OK );
 
         } catch (Exception e){
@@ -68,7 +69,7 @@ import org.springframework.web.bind.annotation.*;
    @DeleteMapping("/enterprices/{id}/movements")
      public ResponseEntity<ObjetoRespuesta> deleteMovimientoDinero(@PathVariable String id){
         try {
-            String mensaje = gestorMovimientoDinero.deleteMovimientoDinero(id);
+            String mensaje = gestorDinero.deleteMovimientoDinero(id);
 
             return new ResponseEntity<>(new ObjetoRespuesta("Eliminado Exitosamente", null), HttpStatus.OK );
 
@@ -78,6 +79,9 @@ import org.springframework.web.bind.annotation.*;
 
         }
     }
+
+
+
 
 
 
