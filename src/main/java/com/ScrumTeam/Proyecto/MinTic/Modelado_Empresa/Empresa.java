@@ -1,11 +1,11 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-
 import java.util.*;
 
 
 
 public class Empresa {
+
     private long id;
     private String nombre;
     private String nit;
@@ -17,10 +17,9 @@ public class Empresa {
     private List<MovimientoDinero> transacciones = new ArrayList<>();
     
     //constructor
-    public Empresa(long id, String nombre, String direccion, String telefono, String nit) {
+    public Empresa(String nombre, String direccion, String telefono, String nit) {
        
         super();
-        this.id = id;
         this.nombre = nombre;
         this.nit = nit;
         this.telefono = telefono;

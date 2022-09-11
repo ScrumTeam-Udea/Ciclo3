@@ -1,8 +1,11 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+
 import java.util.*;
 
+
 public class Empleado {
+    
     private long id;
     private String nombre;
     private String correo;
@@ -17,10 +20,9 @@ public class Empleado {
         }
     
     //constructor
-    public Empleado(long id, String nombre, String correo, Perfil perfil, Empresa empresa, String rol) {
+    public Empleado(String nombre, String correo, Perfil perfil, Empresa empresa, String rol) {
         
         super();
-        this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.perfil = perfil;
