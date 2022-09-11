@@ -1,22 +1,29 @@
-package com.ScrumTeam.Proyecto.MinTic.Controlador;
+package com.ScrumTeam.Proyecto.MinTic.Controller;
+
+import com.ScrumTeam.Proyecto.MinTic.Business.GestorMovimientoDinero;
+import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.MovimientoDinero;
+import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class movimientoDineroControlador {
-  private GestorDinero gestorDinero = new GestorDinero();
+    private GestorMovimientoDinero gestorDinero = new GestorMovimientoDinero();
 
 
-   @GetMapping("/enterprises/[id]/movements/{id}")
-   public ResponseEntity<String> getMovimientoDinero (@PathVariable String id){
+    @GetMapping("/enterprises/[id]/movements")
+    public ResponseEntity<String> getMovimientoDinero (@PathVariable String id){
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    
-    
-   @PostMapping("/enterprises/[id]/movements")
-   public ResponseEntity<String> postMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero){
+
+
+    @PostMapping("/enterprises/[id]/movements")
+    public ResponseEntity<String> postMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero){
 
         try {
-            String mensaje = gestorMovimientoDinero.setMovimientoDinero(movimientoDinero);
+            String mensaje = gestorDinero.setMovimientoDinero(movimientoDinero);
 
             return new ResponseEntity<>(mensaje, HttpStatus.OK);
 
@@ -27,10 +34,10 @@ public class movimientoDineroControlador {
 
 
 
-   @PutMapping("/enterprises/[id]/movements/{id}")
-   public ResponseEntity<ObjetoRespuesta> putMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
-       
-       try {
+    @PutMapping("/enterprises/[id]/movements")
+    public ResponseEntity<ObjetoRespuesta> putMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
+
+        try {
             MovimientoDinero movimientoDinero_bd = gestorMovimientoDinero.updateMovimientoDineroAll(movimientoDinero_update, id);
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa",movimientoDinero_bd), HttpStatus.OK);
 
@@ -38,11 +45,11 @@ public class movimientoDineroControlador {
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(), null), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
-    
-    
-   @PatchMapping("/enterprises/[id]/movements/{id}")
-   public ResponseEntity<ObjetoRespuesta> patchMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
+
+
+
+    @PatchMapping("/enterprises/[id]/movements")
+    public ResponseEntity<ObjetoRespuesta> patchMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
         try {
             MovimientoDinero movimientoDinero_bd= gestorMovimientoDinero.updateMovimientoDinero(movimientoDinero_update, id);
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa", movimientoDinero_bd), HttpStatus.OK );
@@ -52,9 +59,9 @@ public class movimientoDineroControlador {
         }
     }
 
-    
 
-    @DeleteMapping("/empresa/{id}")
+
+    @DeleteMapping("/enterprices/{id}/movements")
     public ResponseEntity<ObjetoRespuesta> deleteMovimientoDinero(@PathVariable String id){
         try {
             String mensaje = gestorMovimientoDinero.deleteMovimientoDinero(id);
@@ -68,6 +75,6 @@ public class movimientoDineroControlador {
         }
     }
 
-    
+
 
 }

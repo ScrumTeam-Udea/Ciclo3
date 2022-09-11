@@ -1,9 +1,11 @@
 package com.ScrumTeam.Proyecto.MinTic.Business;
 
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empresa;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Service
 public class GestorEmpresa {
 
     private ArrayList<Empresa> empresa;

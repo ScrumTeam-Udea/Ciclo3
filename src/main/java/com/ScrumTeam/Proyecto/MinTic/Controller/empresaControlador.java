@@ -2,6 +2,7 @@ package com.ScrumTeam.Proyecto.MinTic.Controller;
 
 import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpresa;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empresa;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +12,14 @@ import java.util.ArrayList;
 
 @RestController
 public class empresaControlador {
-    private GestorEmpresa gestorEmpresa = new GestorEmpresa();
 
+
+
+    /*AUTOWIRED - Hace paarte del patrón SINGLETON - Busca omitir la creación de objetos
+     - Se usa con @SERVICE y @COMPONENT
+     */
+   @Autowired
+    private GestorEmpresa gestorEmpresa;
 
     @GetMapping("/empresa")
     public ResponseEntity<ArrayList<Empresa>> getEmpresa() {
