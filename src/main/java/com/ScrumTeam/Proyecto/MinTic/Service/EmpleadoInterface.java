@@ -13,15 +13,12 @@ public interface EmpleadoInterface {
 
     public Empleado getEmpleado (String id) throws Exception;
 
-    public String setUsuario(Empleado empleado_parametro);
+    public String setEmpleado(Empleado empleado_parametro);
 
-    public Empleado updateUsuarioAll (Empleado empleado_update, String id);
+    public Empleado updateEmpleadoAll (Empleado empleado_update, String id);
 
-    public Empleado updateUsuario (Empleado empleado_update, String id);
+    public Empleado updateEmpleado (Empleado empleado_update, String id);
 
-    public String deleteUsuario(String id);
-
-
-
+    public String deleteEmpleado(String id);
 
 }

@@ -3,20 +3,23 @@ package com.ScrumTeam.Proyecto.MinTic.Controller;
 import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpleadoList;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empleado;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
+import com.ScrumTeam.Proyecto.MinTic.Service.EmpleadoInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class empleadoControlador {
 
-    private GestorEmpleadoList gestorEmpleado = new GestorEmpleadoList();
+    @Autowired
+    private EmpleadoInterface gestorEmpleado;
 
 
     @GetMapping("/empleado")
-    public ResponseEntity<ArrayList<Empleado>> getEmpleado() {
+    public ResponseEntity<List<Empleado>> getEmpleado() {
         return new ResponseEntity<>(gestorEmpleado.getEmpleado(), HttpStatus.OK);
     }
 
