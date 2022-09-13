@@ -1,13 +1,15 @@
 package com.ScrumTeam.Proyecto.MinTic.Controller;
 
+import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpresa;
 import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpresaList;
+import com.ScrumTeam.Proyecto.MinTic.Service.EmpresaInterface;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
-import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -19,10 +21,10 @@ public class empresaControlador {
      - Se usa con @SERVICE y @COMPONENT
      */
    @Autowired
-    private GestorEmpresaList gestorEmpresa;
+    private GestorEmpresa gestorEmpresa;
 
     @GetMapping("/empresa")
-    public ResponseEntity<ArrayList<Empresa>> getEmpresa() {
+    public ResponseEntity<List<Empresa>> getEmpresa() {
         return new ResponseEntity<>(gestorEmpresa.getEmpresa(), HttpStatus.OK);
     }
     @GetMapping("/empresa/{id}")

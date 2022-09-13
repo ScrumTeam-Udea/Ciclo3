@@ -1,22 +1,39 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-import java.util.*;
+import jdk.jfr.Enabled;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.ArrayList;
 
 
-
+@Entity
+@Table(name="empresa")
 public class Empresa {
 
+    @Id
     private long id;
+    @Column
     private String nombre;
+    @Column
     private String nit;
+    @Column
     private String telefono;
+    @Column
     private String direccion;
-    
-    private List<Empleado> empleados = new ArrayList<>();
+
+
+    //private ArrayList<Empleado> empleados = new ArrayList<>();
 
     //private List<MovimientoDinero> transacciones = new ArrayList<>();
     
     //constructor
+
+    public Empresa (){
+
+    }
     public Empresa(String nombre, String direccion, String telefono, String nit) {
        
         super();
@@ -27,13 +44,13 @@ public class Empresa {
 
     }
     
-    public void addEmpleado (Empleado empleado) {
+    /* public void addEmpleado (Empleado empleado) {
         empleados.add(empleado);
     }
 
     public void removeEmpleado(Empleado empleado1) {
         empleados.remove(empleado1);
-    }
+    } */
 
     //getters y setters
     

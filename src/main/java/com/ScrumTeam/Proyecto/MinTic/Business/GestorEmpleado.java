@@ -5,8 +5,6 @@ import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empleado;
 import com.ScrumTeam.Proyecto.MinTic.Repositorio.EmpleadoRepositorio;
 import com.ScrumTeam.Proyecto.MinTic.Service.EmpleadoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
