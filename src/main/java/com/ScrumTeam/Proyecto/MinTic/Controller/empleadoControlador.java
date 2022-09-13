@@ -1,6 +1,6 @@
 package com.ScrumTeam.Proyecto.MinTic.Controller;
 
-import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpleado;
+import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpleadoList;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empleado;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @RestController
 public class empleadoControlador {
 
-    private GestorEmpleado gestorEmpleado = new GestorEmpleado();
+    private GestorEmpleadoList gestorEmpleado = new GestorEmpleadoList();
 
 
     @GetMapping("/empleado")

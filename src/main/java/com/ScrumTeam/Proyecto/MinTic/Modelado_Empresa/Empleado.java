@@ -1,19 +1,28 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Perfil;
 
+import javax.persistence.*;
 import java.util.*;
 
-
+@Entity
+@Table(name="empleado")
 public class Empleado {
-    
+    @Id
     private long id;
+    @Column
     private String nombre;
+    @Column
     private String correo;
-    private Perfil perfil;
-    private Empresa empresa;
+
+    @Column
     private String rol;
 
-    private List<MovimientoDinero> transacciones = new ArrayList<>();
+    public Empleado() {
+
+    }
+
+    //private List<MovimientoDinero> transacciones = new ArrayList<>();
     
     enum NombreRol {
         administrador, operario 
@@ -25,15 +34,15 @@ public class Empleado {
         super();
         this.nombre = nombre;
         this.correo = correo;
-        this.perfil = perfil;
-        this.empresa = empresa;
+        //this.perfil = perfil;
+        //this.empresa = empresa;
         this.rol = rol;
     }
 
-    public void addMovimientoDinero(MovimientoDinero transaccion) {
+    /*public void addMovimientoDinero(MovimientoDinero transaccion) {
       transacciones.add(transaccion);
     }
-    
+    */
     //getters y setters
     public long getId() {
         return id;
@@ -58,7 +67,7 @@ public class Empleado {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-
+/*
     public Empresa getEmpresa() {
         return empresa;
     }
@@ -66,7 +75,7 @@ public class Empleado {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
-
+*/
     public String getRol() {
         return rol;
     }

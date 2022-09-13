@@ -1,4 +1,4 @@
-package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
+/*package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
 public class MovimientoDinero {
     private long id;
@@ -57,3 +57,4 @@ public class MovimientoDinero {
         this.empresa = empresa;
     }
 }
+*/

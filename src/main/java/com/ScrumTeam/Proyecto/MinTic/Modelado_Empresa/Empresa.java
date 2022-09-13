@@ -14,7 +14,7 @@ public class Empresa {
     
     private List<Empleado> empleados = new ArrayList<>();
 
-    private List<MovimientoDinero> transacciones = new ArrayList<>();
+    //private List<MovimientoDinero> transacciones = new ArrayList<>();
     
     //constructor
     public Empresa(String nombre, String direccion, String telefono, String nit) {

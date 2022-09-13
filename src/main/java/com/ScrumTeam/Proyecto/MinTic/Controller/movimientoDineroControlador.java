@@ -1,6 +1,6 @@
-package com.ScrumTeam.Proyecto.MinTic.Controller;
+/*package com.ScrumTeam.Proyecto.MinTic.Controller;
 
-import com.ScrumTeam.Proyecto.MinTic.Business.GestorMovimientoDinero;
+import com.ScrumTeam.Proyecto.MinTic.Business.GestorMovimientoDineroList;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.MovimientoDinero;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
  @RestController
  public class movimientoDineroControlador {
-   
+
   @Autowired
-    private GestorMovimientoDinero gestorDinero;
+    private GestorMovimientoDineroList gestorDinero;
 
 
   @GetMapping("/enterprises/[id]/movements")
@@ -86,3 +86,4 @@ import org.springframework.web.bind.annotation.*;
 
 
 }
+*/

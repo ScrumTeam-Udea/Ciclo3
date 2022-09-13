@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class GestorEmpresa {
+public class GestorEmpresaList {
 
     private ArrayList<Empresa> empresa;
 
-    public GestorEmpresa(){
+    public GestorEmpresaList(){
         this.empresa = new ArrayList<>();
 
         this.empresa.add (new Empresa("Yisel y Asociados","Circasia", "3113129873",

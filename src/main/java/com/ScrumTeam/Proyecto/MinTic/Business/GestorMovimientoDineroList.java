@@ -1,4 +1,4 @@
-package com.ScrumTeam.Proyecto.MinTic.Business;
+/*package com.ScrumTeam.Proyecto.MinTic.Business;
 
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.MovimientoDinero;
 import org.springframework.stereotype.Service;
@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 
 @Service
-public class GestorMovimientoDinero {
+public class GestorMovimientoDineroList {
 
 
     private ArrayList<MovimientoDinero> movimientoDinero;
 
-    public GestorMovimientoDinero() {
+    public GestorMovimientoDineroList() {
         this.movimientoDinero = new ArrayList<>();
     }
 
@@ -22,7 +22,7 @@ public class GestorMovimientoDinero {
         public MovimientoDinero getMovimientoDinero (String id) throws Exception {
 
             for (MovimientoDinero movimientoDinero : this.movimientoDinero) {
-                if (movimientoDinero.getId()) {
+                if (movimientoDinero.getMonto()) {
                     return movimientoDinero;
                 }
             }
@@ -100,6 +100,6 @@ public class GestorMovimientoDinero {
             }
         }
 
-*/
 
-}
+
+} */
