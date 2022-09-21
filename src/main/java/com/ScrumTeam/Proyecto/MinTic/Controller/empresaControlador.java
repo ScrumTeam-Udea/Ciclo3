@@ -1,6 +1,6 @@
 package com.ScrumTeam.Proyecto.MinTic.Controller;
 
-import com.ScrumTeam.Proyecto.MinTic.Business.GestorEmpresa;
+import com.ScrumTeam.Proyecto.MinTic.Service.GestorEmpresa;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,9 +28,7 @@ public class empresaControlador {
     @GetMapping("/empresa/{id}")
     public ResponseEntity<String> getEmpresaPath(@PathVariable String id){
         return new ResponseEntity<>(id, HttpStatus.OK);
-
     }
-
 
 
     //Metodo POST con verificación de usuario
@@ -45,8 +43,6 @@ public class empresaControlador {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-
     }
 
 
@@ -54,13 +50,12 @@ public class empresaControlador {
     @PutMapping("/empresa/{id}")
     public ResponseEntity<ObjetoRespuesta> putEmpresa(@RequestBody Empresa empresa_update, @PathVariable String id){
         try {
-            Empresa empresa_bd = gestorEmpresa.updateEmpresaAll(empresa_update, id);
+            Empresa empresa_bd = gestorEmpresa.updateEmpresaAll(empresa_update, Long.parseLong(id));
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa",empresa_bd), HttpStatus.OK);
 
         } catch (Exception e) {
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(), null), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
 
@@ -69,7 +64,7 @@ public class empresaControlador {
     @PatchMapping("/empresa/{id}")
     public ResponseEntity<ObjetoRespuesta> patchEmpresa(@RequestBody Empresa empresa_update, @PathVariable String id){
         try {
-            Empresa empresa_bd= gestorEmpresa.updateEmpresa(empresa_update, id);
+            Empresa empresa_bd= gestorEmpresa.updateEmpresa(empresa_update, Long.parseLong(id));
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa", empresa_bd), HttpStatus.OK );
 
         } catch (Exception e){
@@ -82,16 +77,14 @@ public class empresaControlador {
     @DeleteMapping("/empresa/{id}")
     public ResponseEntity<ObjetoRespuesta> deleteEmpresa(@PathVariable String id){
         try {
-            String mensaje = gestorEmpresa.deleteEmpresa(id);
+            String mensaje = gestorEmpresa.deleteEmpresa(Long.parseLong(id));
 
             return new ResponseEntity<>(new ObjetoRespuesta("Eliminado Exitosamente", null), HttpStatus.OK );
 
         } catch (Exception e) {
 
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(), null), HttpStatus.INTERNAL_SERVER_ERROR );
-
         }
-
     }
 
 

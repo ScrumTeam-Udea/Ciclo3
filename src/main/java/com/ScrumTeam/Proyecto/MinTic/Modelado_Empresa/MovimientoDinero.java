@@ -1,6 +1,11 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 public class MovimientoDinero {
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private float monto;
     private String concepto;
@@ -8,8 +13,8 @@ public class MovimientoDinero {
     private Empresa empresa;
 
     //constructor
-    public MovimientoDinero(long id, int monto, String concepto, Empleado usuario, Empresa empresa) {
-        this.id = id;
+    public MovimientoDinero(int monto, String concepto, Empleado usuario, Empresa empresa) {
+        super();
         this.monto = monto;
         this.concepto = concepto;
         this.usuario = usuario;

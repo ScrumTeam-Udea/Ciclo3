@@ -1,4 +1,4 @@
-package com.ScrumTeam.Proyecto.MinTic.Business;
+package com.ScrumTeam.Proyecto.MinTic.Service;
 
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empresa;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class GestorEmpresa {
     public GestorEmpresa(){
         this.empresa = new ArrayList<>();
 
-        this.empresa.add (new Empresa("Yisel y Asociados","Circasia", "3113129873",
+        this.empresa.add (new Empresa("Celumovil","Circasia", "3113129873",
                 "92873642-0"));
     }
                 //Verificación de existencia de empresa....
@@ -41,17 +41,21 @@ public class GestorEmpresa {
     }
 
     //Metodo para usar el PATCH y actualizar solo una o mas variables
-    public Empresa updateEmpresa(Empresa empresa_update, String id) throws Exception {
+    public Empresa updateEmpresa(Empresa empresa_update, long id) throws Exception {
         try {
-            Empresa empresa_bd = getEmpresa(id);
-            if (empresa_update.getNombre() != null) {
-                empresa_bd.setNombre(empresa_update.getNombre());
-            }
+            Empresa empresa_bd = getEmpresa(String.valueOf(id));
+
             if (empresa_update.getNombre() != null) {
                 empresa_bd.setNombre(empresa_update.getNombre());
             }
             if (empresa_update.getNit() != null) {
                 empresa_bd.setNit(empresa_update.getNit());
+            }
+            if (empresa_update.getTelefono() != null) {
+                empresa_bd.setTelefono(empresa_update.getTelefono());
+            }
+            if (empresa_update.getDireccion() != null) {
+                empresa_bd.setDireccion(empresa_update.getDireccion());
             }
             return empresa_bd;
         } catch (Exception e) {
@@ -62,13 +66,14 @@ public class GestorEmpresa {
 
 
     /* Metodo para usar el PUT, Y actualizar el objeto completo*/
-    public Empresa updateEmpresaAll(Empresa empresa_update, String id) throws Exception {
+    public Empresa updateEmpresaAll(Empresa empresa_update, long id) throws Exception {
 
         try {
-            Empresa empresa_bd = getEmpresa(id);
+            Empresa empresa_bd = getEmpresa(String.valueOf(id));
             empresa_bd.setNombre(empresa_update.getNombre());
-            empresa_bd.setDireccion(empresa_update.getDireccion());
             empresa_bd.setNit(empresa_update.getNit());
+            empresa_bd.setTelefono(empresa_update.getTelefono());
+            empresa_bd.setDireccion(empresa_update.getDireccion());
 
             return empresa_bd;
         } catch (Exception e) {
@@ -80,9 +85,9 @@ public class GestorEmpresa {
 
     //DELETE metodo para usar el DELETE en el controlador
 
-    public String deleteEmpresa (String id) throws Exception {
+    public String deleteEmpresa (long id) throws Exception {
         try {
-            Empresa empresa = getEmpresa(id);
+            Empresa empresa = getEmpresa(String.valueOf(id));
             this.empresa.remove(empresa);
             return "Empresa Eliminada Existosamente.";
         }catch (Exception e) {

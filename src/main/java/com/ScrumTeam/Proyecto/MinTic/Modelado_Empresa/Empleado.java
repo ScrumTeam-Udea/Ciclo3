@@ -1,11 +1,14 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.*;
 
 
 public class Empleado {
-    
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String nombre;
     private String correo;
@@ -58,6 +61,10 @@ public class Empleado {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public Perfil getPerfil() { return perfil; }
+
+    public void setPerfil(Perfil perfil) { this.perfil = perfil; }
 
     public Empresa getEmpresa() {
         return empresa;

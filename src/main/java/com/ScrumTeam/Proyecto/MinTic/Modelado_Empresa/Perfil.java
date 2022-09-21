@@ -1,14 +1,17 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-public class Perfil {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+public class Perfil {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String image;
     private String telefono;
 
 
-    public Perfil(long id, String image, String telefono) {
-        this.id = id;
+    public Perfil(String image, String telefono) {
+
         this.image = image;
         this.telefono = telefono;
     }

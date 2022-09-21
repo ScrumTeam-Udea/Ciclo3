@@ -1,6 +1,6 @@
 package com.ScrumTeam.Proyecto.MinTic.Controller;
 
-import com.ScrumTeam.Proyecto.MinTic.Business.GestorMovimientoDinero;
+import com.ScrumTeam.Proyecto.MinTic.Service.GestorMovimientoDinero;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.MovimientoDinero;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 
   @GetMapping("/enterprises/[id]/movements")
-    public ResponseEntity<String> getMovimientoDinero (@PathVariable String id){
+    public ResponseEntity<Long> getMovimientoDinero (@PathVariable long id){
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.*;
 
 
    @PutMapping("/enterprises/[id]/movements")
-     public ResponseEntity<ObjetoRespuesta> putMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
+     public ResponseEntity<ObjetoRespuesta> putMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable long id){
 
         try {
             MovimientoDinero movimientoDinero_bd = gestorDinero.updateMovimientoDineroAll(movimientoDinero_update, id);
@@ -54,7 +54,7 @@ import org.springframework.web.bind.annotation.*;
 
 
    @PatchMapping("/enterprises/[id]/movements")
-     public ResponseEntity<ObjetoRespuesta> patchMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable String id){
+     public ResponseEntity<ObjetoRespuesta> patchMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero_update, @PathVariable long id){
         try {
             MovimientoDinero movimientoDinero_bd= gestorDinero.updateMovimientoDinero(movimientoDinero_update, id);
             return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion Exitosa", movimientoDinero_bd), HttpStatus.OK );
@@ -67,7 +67,7 @@ import org.springframework.web.bind.annotation.*;
 
 
    @DeleteMapping("/enterprices/{id}/movements")
-     public ResponseEntity<ObjetoRespuesta> deleteMovimientoDinero(@PathVariable String id){
+     public ResponseEntity<ObjetoRespuesta> deleteMovimientoDinero(@PathVariable long id){
         try {
             String mensaje = gestorDinero.deleteMovimientoDinero(id);
 

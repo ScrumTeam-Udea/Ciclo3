@@ -1,9 +1,10 @@
-package com.ScrumTeam.Proyecto.MinTic.Business;
+package com.ScrumTeam.Proyecto.MinTic.Service;
 
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.MovimientoDinero;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 @Service
@@ -19,10 +20,10 @@ public class GestorMovimientoDinero {
 
         //Get - Metodo para ver el movimiento
 
-        public MovimientoDinero getMovimientoDinero (String id) throws Exception {
+        public MovimientoDinero getMovimientoDinero (long id) throws Exception {
 
             for (MovimientoDinero movimientoDinero : this.movimientoDinero) {
-                if (movimientoDinero.getId()) {
+                if (Objects.equals(movimientoDinero.getId(), id)) {
                     return movimientoDinero;
                 }
             }
@@ -47,7 +48,7 @@ public class GestorMovimientoDinero {
 
         //PATCH - Metodo para actualizar información
 
-        public MovimientoDinero updateMovimientoDinero (MovimientoDinero movimientoDinero_update, String id) throws
+        public MovimientoDinero updateMovimientoDinero (MovimientoDinero movimientoDinero_update, long id) throws
         Exception {
             try {
                 MovimientoDinero movimientoDinero_bd = getMovimientoDinero(id);
@@ -56,7 +57,7 @@ public class GestorMovimientoDinero {
                     movimientoDinero_bd.setConcepto(movimientoDinero_update.getConcepto());
                 }
                 if (movimientoDinero_update.getMonto() != 0.0) {
-                    movimientoDinero_bd.setMonto(movimientoDinero_update.getMonto());
+                    movimientoDinero_bd.setMonto((int) movimientoDinero_update.getMonto());
                 }
 
                 return movimientoDinero_bd;
@@ -69,13 +70,13 @@ public class GestorMovimientoDinero {
 
         // PUT - Metodo actualizar
 
-        public MovimientoDinero updateMovimientoDineroAll (MovimientoDinero movimientoDinero_update, String id) throws
+        public MovimientoDinero updateMovimientoDineroAll (MovimientoDinero movimientoDinero_update, long id) throws
         Exception {
 
             try {
                 MovimientoDinero movimientoDinero_bd = getMovimientoDinero(id);
                 movimientoDinero_bd.setConcepto(movimientoDinero_update.getConcepto());
-                movimientoDinero_bd.setMonto(movimientoDinero_update.getMonto());
+                movimientoDinero_bd.setMonto((int) movimientoDinero_update.getMonto());
 
                 return movimientoDinero_bd;
 
@@ -87,7 +88,7 @@ public class GestorMovimientoDinero {
 
         //DELETE - metodo para eliminar
 
-        public String deleteMovimientoDinero (String id) throws Exception {
+        public String deleteMovimientoDinero (long id) throws Exception {
 
             try {
                 MovimientoDinero movimientoDinero = getMovimientoDinero(id);
@@ -100,6 +101,14 @@ public class GestorMovimientoDinero {
             }
         }
 
-*/
 
+           //Getters & Setters
+
+    public ArrayList<MovimientoDinero> getMovimientoDinero() {
+        return movimientoDinero;
+    }
+
+    public void setMovimientoDinero(ArrayList<MovimientoDinero> movimientoDinero) {
+        this.movimientoDinero = movimientoDinero;
+    }
 }
