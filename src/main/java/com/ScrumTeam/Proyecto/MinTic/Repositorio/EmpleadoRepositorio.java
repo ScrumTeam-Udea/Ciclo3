@@ -9,9 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmpleadoRepositorio extends JpaRepository<Empleado, String> {
+public interface EmpleadoRepositorio extends JpaRepository<Empleado, Long> {
+
 
     @Modifying
-@Query ("UPDATE empleado u SET u.nombre= :nombre, u.correo= :correo, u.perfil= :perfil, u.empresa= :empresa, u.rol= :rol WHERE u.nombreEmpleado= :id")
+@Query ("UPDATE empleado u SET u.nombre= :nombre, u.correo= :correo, u.perfil= :perfil, u.empresa= :empresa, u.rol= :rol WHERE u.nombre= :id")
 public int update (String nombre, String correo, Perfil perfil, Empresa empresa, String rol, long id);
+
+
 }

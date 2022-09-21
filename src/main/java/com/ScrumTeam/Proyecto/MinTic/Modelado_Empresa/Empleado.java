@@ -24,8 +24,7 @@ public class Empleado {
     
     //constructor
     public Empleado(String nombre, String correo, Perfil perfil, Empresa empresa, String rol) {
-        
-        super();
+
         this.nombre = nombre;
         this.correo = correo;
         this.perfil = perfil;

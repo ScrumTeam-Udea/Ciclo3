@@ -14,7 +14,7 @@ public class MovimientoDinero {
 
     //constructor
     public MovimientoDinero(int monto, String concepto, Empleado usuario, Empresa empresa) {
-        super();
+
         this.monto = monto;
         this.concepto = concepto;
         this.usuario = usuario;

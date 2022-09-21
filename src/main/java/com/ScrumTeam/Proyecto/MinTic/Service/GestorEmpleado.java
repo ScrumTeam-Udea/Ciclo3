@@ -22,7 +22,7 @@ public class GestorEmpleado implements GestorEmpleadoInterface {
 
     @Override
     public Empleado getEmpleado(long id) throws Exception {
-        Optional<Empleado> empleadoBd = repositorio.findAllById(id);
+        Optional<Empleado> empleadoBd = repositorio.findById(id);
         if (empleadoBd.isPresent()) {
             return empleadoBd.get();
         }
@@ -35,12 +35,15 @@ public class GestorEmpleado implements GestorEmpleadoInterface {
         return "Empleado creado exitosamente";
     }
 
+
     @Transactional
     @Override
     public Empleado updateEmpleadoAll(Empleado empleado_update, long id) throws Exception {
         repositorio.update(empleado_update.getNombre(), empleado_update.getCorreo(), empleado_update.getPerfil(), empleado_update.getEmpresa(), empleado_update.getRol(), id);
         return getEmpleado(id);
     }
+
+
 
     @Override
     public Empleado updateEmpleado(Empleado empleado_update, long id) throws Exception {
@@ -67,7 +70,7 @@ public class GestorEmpleado implements GestorEmpleadoInterface {
 
         @Override
         public String deleteEmpleado (long id){
-            repositorio.deleteById(String.valueOf(id));
+            repositorio.deleteById(id);
             return "Empleado eliminado exitosamente";
         }
     }

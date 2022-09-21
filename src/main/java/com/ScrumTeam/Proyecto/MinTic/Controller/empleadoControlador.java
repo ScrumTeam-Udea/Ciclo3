@@ -15,9 +15,9 @@ import java.util.List;
 public class empleadoControlador {
 
     @Autowired
-    GestorEmpleadoInterface gestorEmpleado;
+   private GestorEmpleadoInterface gestorEmpleado;
 
-    @GetMapping("/empleados")
+    @GetMapping("/empleado/empleados")
     public ResponseEntity<List<Empleado>> getEmpleados() {
         return new ResponseEntity<>(gestorEmpleado.getEmpleados(), HttpStatus.OK);
     }
@@ -30,7 +30,6 @@ public class empleadoControlador {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
     @GetMapping("/empleado/{id}")
@@ -42,7 +41,7 @@ public class empleadoControlador {
 
                 //Metodo POST con Verificacion de Usuario.
     @PostMapping("/empleado")
-    public ResponseEntity<String> postEmpleado(@RequestBody Empleado empleado_parametro){
+    public ResponseEntity<String> postEmpleado (@RequestBody Empleado empleado_parametro){
         try {
             String mensaje = gestorEmpleado.setEmpleado(empleado_parametro);
             return new ResponseEntity<>(mensaje, HttpStatus.OK);
@@ -53,16 +52,15 @@ public class empleadoControlador {
     }
 
 
-
                         //PUT Sirve para actualizar el objeto completo.
     @PutMapping("/empleado/{id}")
     public ResponseEntity<ObjetoRespuesta> putEmpleado(@RequestBody Empleado empleado_update, @PathVariable long id){
 
         try {
             Empleado empleado_bd = gestorEmpleado.updateEmpleadoAll(empleado_update, id);
-            return new ResponseEntity<>(new ObjetoRespuesta("Actualización Exitosa.", empleado_bd), HttpStatus.OK);
+            return new ResponseEntity<>(new ObjetoRespuesta("Actualización Exitosa.",empleado_bd),HttpStatus.OK);
         } catch(Exception e){
-            return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(), null),HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(),null),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -88,7 +86,7 @@ public class empleadoControlador {
     public ResponseEntity<ObjetoRespuesta> deleteEmpleado(@PathVariable long id){
         try {
             String mensaje = gestorEmpleado.deleteEmpleado(id);
-            return new ResponseEntity<>(new ObjetoRespuesta("Eliminado Exitosamente", null), HttpStatus.OK);
+            return new ResponseEntity<>(new ObjetoRespuesta("Eliminado Exitosamente",null),HttpStatus.OK);
 
         } catch (Exception e) {
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(),null),HttpStatus.INTERNAL_SERVER_ERROR);

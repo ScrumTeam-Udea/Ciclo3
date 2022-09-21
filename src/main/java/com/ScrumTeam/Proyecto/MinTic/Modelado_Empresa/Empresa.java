@@ -20,8 +20,7 @@ public class Empresa {
     
     //constructor
     public Empresa(String nombre, String direccion, String telefono, String nit) {
-       
-        super();
+
         this.nombre = nombre;
         this.nit = nit;
         this.telefono = telefono;
