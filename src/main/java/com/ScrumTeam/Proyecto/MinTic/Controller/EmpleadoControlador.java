@@ -1,6 +1,5 @@
 package com.ScrumTeam.Proyecto.MinTic.Controller;
 
-import com.ScrumTeam.Proyecto.MinTic.Service.GestorEmpleado;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.Empleado;
 import com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa.ObjetoRespuesta;
 import com.ScrumTeam.Proyecto.MinTic.Service.GestorEmpleadoInterface;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class empleadoControlador {
+public class EmpleadoControlador {
 
     @Autowired
    private GestorEmpleadoInterface gestorEmpleado;

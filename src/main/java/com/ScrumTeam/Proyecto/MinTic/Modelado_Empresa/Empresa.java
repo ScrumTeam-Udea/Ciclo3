@@ -36,8 +36,8 @@ public class Empresa {
         empleados.remove(empleado1);
     }
 
-    //getters y setters
-    
+
+         //getters y setters
     public long getId() {
         return id;
     }

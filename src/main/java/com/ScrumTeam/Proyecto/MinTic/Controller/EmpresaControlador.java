@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 @RestController
-public class empresaControlador {
+public class EmpresaControlador {
 
 
 

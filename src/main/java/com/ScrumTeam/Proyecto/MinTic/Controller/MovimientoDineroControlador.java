@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
  @RestController
- public class movimientoDineroControlador {
+ public class MovimientoDineroControlador {
    
   @Autowired
     private GestorMovimientoDinero gestorDinero;
