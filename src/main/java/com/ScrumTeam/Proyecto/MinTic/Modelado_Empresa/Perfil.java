@@ -1,24 +1,46 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.Date;
+
+
+
+
+@Entity
+@Table(name ="perfil")
 public class Perfil {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
+    @Column
     private String image;
-    private String telefono;
+    @Column
+    private String phone;
+    @JsonIgnore
+    @OneToOne(mappedBy = "perfil")
+    private Empleado empleado;
 
 
-    public Perfil(long id, String image, String telefono) {
+    public Perfil(String id, String image, String phone, Empleado empleado) {
         this.id = id;
         this.image = image;
-        this.telefono = telefono;
+        this.phone = phone;
+        this.empleado = empleado;
     }
 
 
-    public long getId() {
+    public Perfil() {
+    }
+
+
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -30,11 +52,20 @@ public class Perfil {
         this.image = image;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }

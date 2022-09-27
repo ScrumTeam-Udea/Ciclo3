@@ -1,12 +1,10 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
-import jdk.jfr.Enabled;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.List;
+
 
 
 @Entity
@@ -14,54 +12,46 @@ import java.util.ArrayList;
 public class Empresa {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+    @Column(unique = true)
     private String nombre;
-    @Column
+    @Column(unique = true)
     private String nit;
     @Column
     private String telefono;
     @Column
     private String direccion;
 
+    @OneToMany
+    @JoinColumn
+    private List<Empleado> empleados;
+    @OneToMany(mappedBy = "empresa")
+    private List<MovimientoDinero> movimiento;
 
-    //private ArrayList<Empleado> empleados = new ArrayList<>();
 
-    //private List<MovimientoDinero> transacciones = new ArrayList<>();
-    
-    //constructor
-
-    public Empresa (){
-
-    }
-    public Empresa(String nombre, String direccion, String telefono, String nit) {
-       
-        super();
+    public Empresa(String nombre, String nit, String telefono,
+                   String direccion, List<Empleado> empleados, List<MovimientoDinero> movimiento) {
         this.nombre = nombre;
         this.nit = nit;
         this.telefono = telefono;
         this.direccion = direccion;
-
-    }
-    
-    /* public void addEmpleado (Empleado empleado) {
-        empleados.add(empleado);
+        this.empleados = empleados;
+        this.movimiento = movimiento;
     }
 
-    public void removeEmpleado(Empleado empleado1) {
-        empleados.remove(empleado1);
-    } */
+    public Empresa() {
+    }
 
-    //getters y setters
-    
+
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -69,8 +59,8 @@ public class Empresa {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-     public String getNit() {
+
+    public String getNit() {
         return nit;
     }
 
@@ -85,7 +75,7 @@ public class Empresa {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
+
     public String getDireccion() {
         return direccion;
     }
@@ -94,4 +84,19 @@ public class Empresa {
         this.direccion = direccion;
     }
 
+    public List<Empleado> getEmpleado() {
+        return empleados;
+    }
+
+    public void setEmpleado(List<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
+    public List<MovimientoDinero> getMovimiento() {
+        return movimiento;
+    }
+
+    public void setMovimiento(List<MovimientoDinero> movimiento) {
+        this.movimiento = movimiento;
+    }
 }
