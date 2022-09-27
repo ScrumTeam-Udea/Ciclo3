@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -25,21 +26,25 @@ public class EmpresaController {
     public String viewAllEmpresas(Model model ){
         List<Empresa> listaEmpresas = empresaService.getAllEmpresas();
             model.addAttribute("emplist",listaEmpresas);
-            return "verEmpresas";
+            return "VerEmpresas";
         }
 
 
-    @GetMapping("/addEmpresa")
+    @GetMapping("/agregarEmpresa")
     public String nuevaEmpresa(Model model){
         Empresa emp = new Empresa();
         model.addAttribute("emp",emp);
-        return "agregarEmpresa";
+        return "AgregarEmpresa";
     }
 
-    @PostMapping("/enterprises")
-    public ResponseEntity<Boolean> setEmpresa(@RequestBody Empresa empresa){
-        return new ResponseEntity<>(empresaService.saveOrUpdateEmpresa(empresa), HttpStatus.OK);
-
+    @PostMapping("/GuardarEmpresa")
+    public String guardarEmpresa(Empresa emp, RedirectAttributes redirectAttributes){
+        if(empresaService.saveOrUpdateEmpresa(emp)==true){
+            redirectAttributes.addFlashAttribute("mensaje","saveOK");
+            return "redirect:/enterprises";
+        }
+        redirectAttributes.addFlashAttribute("mensaje","saveError");
+        return "redirect:/AgregarEmpresa";
     }
 
 
