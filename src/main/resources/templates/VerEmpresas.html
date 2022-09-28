@@ -64,6 +64,31 @@
 
     </table>
     </div>
+<script th:inline="javascript">
+    window.onload=function(){
+
+        var msg= [[${mensaje}]];
+        if (msg == "saveOK"){
+            Command : toastr["success"]("Movimiento registrado con éxito!")
+        }
+        else if (msg == "updateOK"){
+            Command : toastr["success"]("Movimiento actualizado con éxito!")
+        }
+        else if (msg == "deleteOK"){
+            Command : toastr["error"]("Movimiento eliminado con éxito!")
+        }
+        else if (msg == "deleteError"){
+            Command : toastr["error"]("Movimiento no pudo ser eliminado!")
+        }
+        toastr.options={
+            "positionClass": "toast-top-right",
+            "showDuration":"300",
+            "showMethod":"fadeIn",
+            "hideMethod":"fadeOut",
+        }
+    }
+
+</script>
     </body>
     </html>
 

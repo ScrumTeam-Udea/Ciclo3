@@ -59,6 +59,8 @@
 
     </tr>
 </table>
+    </div>
+</div>
 
     <!-- vamos a crear un boton que sirva para agregar nuevos empleados -->
 <div class="pt-4">
@@ -70,22 +72,21 @@
     <button type="button" class="btn btn-info"><a th:href="@{/VerMovimientos}">Ver lista de Movimientos</a></button>
 
 </div>
-<!--
-<div th:inline="javascript">
+<script th:inline="javascript">
     window.onload=function(){
 
         var msg= [[${mensaje}]];
         if (msg == "saveOK"){
-            Command : toastr["success"]("Empleado registrado con éxito!")
-            }
+            Command : toastr["success"]("Movimiento registrado con éxito!")
+        }
         else if (msg == "updateOK"){
-            Command : toastr["success"]("Empleado actualizado con éxito!")
+            Command : toastr["success"]("Movimiento actualizado con éxito!")
         }
         else if (msg == "deleteOK"){
-            Command : toastr["error"]("Registro de empleado eliminado con éxito!")
+            Command : toastr["error"]("Movimiento eliminado con éxito!")
         }
         else if (msg == "deleteError"){
-            Command : toastr["error"]("Registro de empleado no ha sido eliminado!")
+            Command : toastr["error"]("Movimiento no pudo ser eliminado!")
         }
         toastr.options={
             "positionClass": "toast-top-right",
@@ -96,8 +97,6 @@
     }
 
 </script>
-</div>
-</div>
--->
+
 </body>
 </html>

@@ -15,7 +15,7 @@ import java.util.List;
 public class MovimientoService {
 
     @Autowired
-    private MovimientoRepositorio movimientoRepositorio;
+    MovimientoRepositorio movimientoRepositorio;
 
     public List<MovimientoDinero> getAllMovimientos(){
         List<MovimientoDinero> movimientoList = new ArrayList<>();
