@@ -25,7 +25,7 @@ public class EmpresaController {
     @GetMapping("/enterprises")
     public String viewAllEmpresas(Model model ){
         List<Empresa> listaEmpresas = empresaService.getAllEmpresas();
-            model.addAttribute("emplist",listaEmpresas);
+            model.addAttribute("emplist", listaEmpresas);
             return "VerEmpresas";
         }
 
@@ -49,9 +49,38 @@ public class EmpresaController {
 
 
 
-    @DeleteMapping("/enterpises/{id}")
-    public ResponseEntity<Boolean> deleteEmpresa(@PathVariable Long id){
-        return new  ResponseEntity<>(empresaService.deleteEmpresa(id), HttpStatus.OK) ;
+
+
+    //EDITAR EMPRESA
+    @GetMapping("/EditarEmpresa/{id}")
+    public String editarEmpresa(Model model, @PathVariable Long id){
+        Empresa emp = empresaService.getEmpresaById(id);
+        model.addAttribute("emp", emp);
+        return "EditarEmpresa";
+    }
+
+    @PostMapping("/ActualizarEmpresa")
+    public String updateEmpresa(Empresa emp){
+        if(empresaService.saveOrUpdateEmpresa(emp)==true){
+            return "redirect:/enterprises";
+        }
+        return "redirect:/AgregarEmpresa";
+
+    }
+
+
+
+
+
+    //BORRAR EMPRESA
+
+    @GetMapping("/EliminarEmpresa/{id}")
+    public String eliminarEmpresa(@PathVariable Long id){
+
+        if(empresaService.deleteEmpresa(id)){
+            return "redirect:/enterprises";
+        }
+        return "redirect:/enterprises";
     }
 
 

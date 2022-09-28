@@ -17,22 +17,26 @@ public class Empleado {
     private String nombre;
     @OneToOne
     private Perfil perfil;
+    private String rol;
+    private String password;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="empresa_id")
     private Empresa empresa;
-    @OneToMany(mappedBy = "empleado")
+    @OneToMany
     private List<MovimientoDinero> movimiento;
 
 
 
     public Empleado(String email, String nombre, Perfil perfil, Empresa empresa,
-    List<MovimientoDinero> movimiento) {
+    List<MovimientoDinero> movimiento, String rol, String password) {
 
         this.email = email;
         this.nombre = nombre;
         this.perfil = perfil;
         this.empresa = empresa;
         this.movimiento = movimiento;
+        this.rol = rol;
+        this.password = password;
     }
 
 
@@ -86,5 +90,21 @@ public class Empleado {
 
     public void setMovimiento(List<MovimientoDinero> movimiento) {
         this.movimiento = movimiento;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

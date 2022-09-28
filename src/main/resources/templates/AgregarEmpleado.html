@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a{
+      color:white;
+    }
+    a:hover{
+      color: darkgrey;
+      text-decoration: none;
+    }
+  </style>
 
 </head>
 <body>
@@ -29,9 +38,9 @@
     <!--Campo para correo-->
     <div class="row">
       <div class="form-group col-md-12">
-        <label class="col-md-3" for="correo">Correo del empleado:</label>
+        <label class="col-md-3" for="email">Correo del empleado:</label>
         <div class="col-md-4">
-          <input type="email" th:field="*{correo}" class="form-control" id="correo" required="required"></div>
+          <input type="email" th:field="*{email}" class="form-control" id="email" required="required"></div>
       </div>
     </div>
 

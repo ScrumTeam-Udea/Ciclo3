@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a{
+      color:white;
+    }
+    a:hover{
+      color: darkgrey;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -56,9 +65,9 @@
     <!--Campo para NIT-->
     <div class="row">
       <div class="form-group col-md-12">
-        <label class="col-md-3" for="NIT">NIT o RUT de la Empresa:</label>
+        <label class="col-md-3" for="nit">NIT o RUT de la Empresa:</label>
         <div class="col-md-4">
-          <input type="text" th:field="*{NIT}" class="form-control" id="NIT" required="required"></div>
+          <input type="text" th:field="*{nit}" class="form-control" id="nit" required="required"></div>
       </div>
     </div>
 

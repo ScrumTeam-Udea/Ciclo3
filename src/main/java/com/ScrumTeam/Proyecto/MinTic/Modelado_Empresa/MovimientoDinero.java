@@ -15,6 +15,7 @@ public class MovimientoDinero {
     @Column
     private float monto;
     @ManyToOne
+    @JoinColumn(name = "empleado_id")
     private Empleado empleado;
     @ManyToOne
     private Empresa empresa;

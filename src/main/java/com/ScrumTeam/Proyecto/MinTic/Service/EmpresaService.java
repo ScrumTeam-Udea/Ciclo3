@@ -45,10 +45,11 @@ public class EmpresaService {
 
     public boolean deleteEmpresa(Long id){
         empresaRepositorio.deleteById(id);
-        if (getEmpresaById(id) != null){
-            return false;
+        if (empresaRepositorio.findById(id) != null){
+
+            return true;
         }
-        return true;
+        return false;
     }
 
 }
