@@ -1,6 +1,7 @@
 package com.ScrumTeam.Proyecto.MinTic.Controller;
 
 
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
