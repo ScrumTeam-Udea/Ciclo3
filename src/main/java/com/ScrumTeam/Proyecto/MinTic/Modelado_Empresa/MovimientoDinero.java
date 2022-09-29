@@ -1,36 +1,44 @@
 package com.ScrumTeam.Proyecto.MinTic.Modelado_Empresa;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "movimientodinero")
 public class MovimientoDinero {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private float monto;
+    @Column
     private String concepto;
-    private Empleado usuario;
+    @Column
+    private float monto;
+    @ManyToOne
+    @JoinColumn(name = "empleado_id")
+    private Empleado empleado;
+    @ManyToOne
     private Empresa empresa;
 
-    //constructor
-    public MovimientoDinero(long id, int monto, String concepto, Empleado usuario, Empresa empresa) {
-        this.id = id;
-        this.monto = monto;
+
+    public MovimientoDinero(String concepto, float monto, Empleado empleado, Empresa empresa) {
         this.concepto = concepto;
-        this.usuario = usuario;
+        this.monto = monto;
+        this.empleado = empleado;
         this.empresa = empresa;
     }
 
-    //getters y setters
+
+    public MovimientoDinero() {
+    }
+
+
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
-    }
-    
-    public float getMonto() {
-        return monto;
-    }
-
-    public void setMonto(int monto) {
-        this.monto = monto;
     }
 
     public String getConcepto() {
@@ -41,15 +49,23 @@ public class MovimientoDinero {
         this.concepto = concepto;
     }
 
-    public Empleado getUsuario() {
-        return usuario;
+    public float getMonto() {
+        return monto;
     }
 
-    public void setUsuario(Empleado usuario) {
-        this.usuario = usuario;
+    public void setMonto(float monto) {
+        this.monto = monto;
     }
-    
-     public Empresa getEmpresa() {
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Empresa getEmpresa() {
         return empresa;
     }
 
